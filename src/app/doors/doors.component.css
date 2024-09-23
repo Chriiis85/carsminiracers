@@ -1,0 +1,112 @@
+
+.door {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+  }
+  
+  .left-door{
+      width: 50vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      background:
+      linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+      linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+      linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+      linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+      linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+      linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+    background-color: #131313;
+    background-size: 20px 20px;
+  }
+  
+  .right-door{
+      width: 50vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      background:
+      linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+      linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+      linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+      linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+      linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+      linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+    background-color: #131313;
+    background-size: 20px 20px;
+  }
+  
+  .left-door, .right-door {
+    position: relative;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+  }
+  
+  /* Animación para ocultar la puerta */
+  @keyframes hideDoor {
+    100% {
+        opacity: 1;
+        visibility: hidden;
+    }
+  }
+  
+  /* Definición de la animación */
+  @keyframes moveLeft {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-105%); 
+        opacity: 1;
+    }
+    101%{
+      visibility: hidden;
+    }
+  }
+  
+  @keyframes moveRight {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(105%);
+        opacity: 1;
+    }
+    101%{
+      visibility: hidden;
+    }
+  }
+  
+  /* Aplica la animación a las puertas */
+  .left-door {
+    animation-name: moveLeft;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.75s;
+  }
+  
+  .right-door {
+    animation-name: moveRight;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.75s;
+  }
+  
+  /* Aplica la animación al contenedor .door */
+  .door {
+    animation-name: hideDoor;
+    animation-delay: 2s; /* Asegúrate de que se inicie después de que las puertas se muevan */
+  }
+  

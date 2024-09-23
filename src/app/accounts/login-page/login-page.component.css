@@ -1,0 +1,182 @@
+.main {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-image: url("https://s1.1zoom.me/b5050/475/331672-svetik_3840x2400.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bg-container {
+  width: 500px;
+  height: 600px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(3px); /* Nivel de desenfoque */
+  -webkit-backdrop-filter: blur(10px); 
+}
+
+.container {
+  width: 500px;
+  height: 600px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: transparent;
+}
+
+.container > h1{
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 2em;
+  margin-bottom: 50px;
+}
+
+.container > p{
+  margin: 0;
+  font-size: 0.8em;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+a{
+  margin: 0;
+  font-size: 1em;
+  font-weight: 500;
+  color: blue;
+}
+
+.btn{
+  display: inline-block;
+  outline: 0;
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid #babfc3;
+  padding: 5px 20px;
+  min-height: 40px;
+  min-width: 350px;
+  color: #202223;
+  background: #ffffff;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 0px 0px;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  border: 2px solid gray;
+}
+
+.btn-socials{
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  flex-direction: row;
+  gap: 15px;
+  outline: 0;
+  cursor: pointer;
+  text-align: center;
+  padding: 5px 20px;
+  min-height: 20px;
+  min-width: 350px;
+  color: #202223;
+  background: #ffffff;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 0.8em;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 0px 0px;
+  margin-top: 15px;
+  text-transform: uppercase;
+  border: 2px solid gray;
+}
+
+.btn-socials:hover,.btns:hover {
+  background: #f6f6f7;
+  outline: 1px solid transparent;
+}
+
+.back{
+  margin: 0;
+  width: 400px;
+  transition: 0.3s;
+  font-size: 0.8em;
+}
+
+.back:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.input-container {
+  position: relative;
+  margin-bottom: 30px;
+  width: 350px;
+  color: white;
+}
+
+#pwd{
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+.input-container input[type="text"] {
+  font-size: 1em;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  padding: 5px 0;
+  background-color: transparent;
+  outline: none;
+  color: white;
+}
+
+.input-container .label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: white;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.input-container input[type="text"]:focus ~ .label,
+.input-container input[type="text"]:valid ~ .label {
+  top: -20px;
+  font-size: 16px;
+  color: white;
+}
+
+.input-container .underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: white;
+  transform: scaleX(0);
+  transition: all 0.3s ease;
+}
+
+.input-container input[type="text"]:focus ~ .underline,
+.input-container input[type="text"]:valid ~ .underline {
+  transform: scaleX(1);
+}
+
+
+.bar{
+  width: 80%;
+  height: 2px;
+  background-color: grey;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

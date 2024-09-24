@@ -1,29 +1,59 @@
 <!--<app-doors></app-doors>-->
 <section class="main">
-    <div class="bg-container">
-      <form class="container">
-        <h1>Registro de Usuario</h1>
-        <div class="input-container">
-          <input type="text" [(ngModel)]="email" id="email" name="email" required="" autocomplete="off" />
-          <label for="input" class="label">Introduzca su correo o usuario</label>
-          <div class="underline"></div>
-        </div>
-              <div class="input-container" id="pwd">
-          <input type="password" [(ngModel)]="pwd"  name="pwd" required="" autocomplete="off" />
-          <label for="input" class="label">Introduzca su correo o usuario</label>
-          <div class="underline"></div>
-        </div>
-    
-        <button (click)="onRegister()" type="submit" class="btn">Registrar Usuario</button>
-        <p>¿Tienes ya una cuenta?&nbsp;<a (click)="this.router.navigate(['/login'])">Inicia Sesión aquí</a></p>
-  
-        <div class="bar">&nbsp;</div>
-      </form> 
-      <p class="p-socials">Registrate más rapido con:</p>
-      <div class="container-socials">
-        <button (click)="signInGoogle()" class="btn-socials google"><img width="27" height="27" src="https://img.icons8.com/color/48/google-logo.png" alt="google-logo"/>Google</button
-        ><button (click)="signInFacebook()" class="btn-socials apple"><img width="30" height="30" src="https://img.icons8.com/color/48/facebook.png" alt="facebook"/>Facebook</button>
+  <div class="bg-container">
+    <form (ngSubmit)="onRegister()" class="container">
+      <h1>Registro de Usuario</h1>
+      <div class="input-container">
+        <input
+          type="text"
+          [(ngModel)]="email"
+          id="email"
+          name="email"
+          required=""
+          autocomplete="off"
+        />
+        <label for="input" class="label">Introduzca su correo o usuario</label>
+        <div class="underline"></div>
       </div>
+      <div class="input-container" id="pwd">
+        <input
+          type="password"
+          [(ngModel)]="pwd"
+          name="pwd"
+          required=""
+          autocomplete="off"
+        />
+        <label for="input" class="label">Introduzca la contraseña</label>
+        <div class="underline"></div>
+      </div>
+
+      <button type="submit" class="btn">Registrar Usuario</button>
+      <p>
+        ¿Tienes ya una cuenta?&nbsp;<a
+          (click)="this.router.navigate(['/login'])"
+          >Inicia Sesión aquí</a
+        >
+      </p>
+
+      <div class="bar">&nbsp;</div>
+    </form>
+    <p class="p-socials">Registrate más rapido con:</p>
+    <div class="container-socials">
+      <button (click)="signInGoogle()" class="btn-socials google">
+        <img
+          width="27"
+          height="27"
+          src="https://img.icons8.com/color/48/google-logo.png"
+          alt="google-logo"
+        />Google</button
+      ><button (click)="signInFacebook()" class="btn-socials apple">
+        <img
+          width="30"
+          height="30"
+          src="https://img.icons8.com/color/48/facebook.png"
+          alt="facebook"
+        />Facebook
+      </button>
     </div>
-  </section>
-  
+  </div>
+</section>

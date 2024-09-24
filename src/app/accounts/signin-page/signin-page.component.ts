@@ -25,7 +25,7 @@ export class SigninPageComponent {
   // Método para autenticación con Google
   async signInGoogle() {
     try {
-      const userCredential = await this.authService.loginWithGoogle();
+      const userCredential = await this.authService.signWithGoogle();
       const userEmail = userCredential.user?.email;
       console.log(userCredential);
       Swal.fire({

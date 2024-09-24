@@ -1,19 +1,47 @@
-import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginPageComponent } from './accounts/login-page/login-page.component';
-import { MainPageComponent } from './main-page/main-page.component';
-import { SigninPageComponent } from './accounts/signin-page/signin-page.component';
+import { NgModule } from '@angular/core';
+import { authGuard, publicGuard } from './auth.guard';
 
 
+//Rutas de manera tradicional
+/*export const routes: Routes = [
+  { path: 'login', component: LoginPageComponent },
+  { path: 'main', component: MainPageComponent },
+  { path: 'sign', component: SignPageComponent },
+  { path: 'reset', component: ResetPasswordPageComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' }, // Redirigir a login por defecto si no hay ruta
+];*/
 
 export const routes: Routes = [
-  { path: 'login', component: LoginPageComponent },
-  { path: 'sign', component: SigninPageComponent },
-  { path: 'main', component: MainPageComponent },
-  { path: '', redirectTo: '/main', pathMatch: 'full' }];
+  {
+    path: '',
+    canActivate: [authGuard],
+    loadComponent: () => import('./main-page/main-page.component').then(m => m.MainPageComponent),
+  },
+  {
+    path: 'main',
+    loadComponent: () => import('./main-page/main-page.component').then(m => m.MainPageComponent),
+  },
+  {
+    path: '',
+    canActivate: [publicGuard],
+    children:[
+      {
+        path: 'login',
+        loadComponent: () => import('./accounts/login-page/login-page.component').then(m => m.LoginPageComponent)
+      },
+      {
+        path: 'sign',
+        loadComponent: () => import('./accounts/signin-page/signin-page.component').then(m => m.SigninPageComponent)
+      },
+    ]
+  },
+
+];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

@@ -45,6 +45,11 @@ export class AuthService {
 
   // Método para iniciar sesión con Google
   async loginWithGoogle(): Promise<UserCredential> {
+    const provider = new GoogleAuthProvider();
+    return this.callPopUp(provider);
+  }
+
+  async signWithGoogle(): Promise<UserCredential> {
     this.sendEmailVerification();
     const provider = new GoogleAuthProvider();
     return this.callPopUp(provider);

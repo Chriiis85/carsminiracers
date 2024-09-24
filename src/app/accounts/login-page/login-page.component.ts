@@ -58,7 +58,7 @@ export class LoginPageComponent {
         });
 
         // Si el usuario se ha logueado correctamente
-        this.router.navigateByUrl('/main');
+        this.router.navigateByUrl('/collection');
         console.log(
           'Usuario logueado correctamente:',
           userCredential.user?.email
@@ -192,7 +192,7 @@ export class LoginPageComponent {
           icon: 'success',
           confirmButtonText: 'Continuar',
         }).then(() => {
-          this.router.navigateByUrl('/main'); // Redirigir a la página principal
+          this.router.navigateByUrl('/collection'); // Redirigir a la página principal
         });
       } else {
         Swal.fire({

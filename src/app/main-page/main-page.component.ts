@@ -14,8 +14,6 @@ import { AuthService } from '../services/auth.service';
 export class MainPageComponent {
 
   constructor(private router: Router) {}
-  // Inyectar el servicio para poder usar sus propiedades
-  private authService = inject(AuthService);
   
   scrollToSection(sectionId: string): void {
     const element = document.getElementById(sectionId);
@@ -26,11 +24,6 @@ export class MainPageComponent {
 
   redirectInstagram() {
     window.open('https://www.instagram.com/carsminiracers.es/', '_blank');
-  }
-
-  logOut(){
-    this.authService.logout();
-    this.router.navigate(['/main']);
   }
 
   redirectLogin() {

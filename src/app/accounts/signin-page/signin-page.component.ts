@@ -3,11 +3,12 @@ import { AuthService, Credential } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { FormsModule } from '@angular/forms';
+import { DoorsComponent } from "../../doors/doors.component";
 
 @Component({
   selector: 'app-signin-page',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, DoorsComponent],
   templateUrl: './signin-page.component.html',
   styleUrl: './signin-page.component.css',
 })
@@ -38,7 +39,7 @@ export class SigninPageComponent {
         icon: 'success',
         confirmButtonText: 'Continuar',
       }).then(() => {
-        this.router.navigateByUrl('/'); // Redirigir a la página principal
+        this.router.navigateByUrl('/collection'); // Redirigir a la página principal
       });
     } catch (error: any) {
       console.error('Error en la autenticación con Google:', error.message);
@@ -99,7 +100,7 @@ export class SigninPageComponent {
       `,
       });
       // Si el usuario se ha logueado correctamente
-      this.router.navigateByUrl('/');
+      this.router.navigateByUrl('/collection');
       console.log(
         'Usuario registrado correctamente:',
         userCredential.user?.email

@@ -66,6 +66,7 @@ a{
 a:hover{
   color: #2d79f3;
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .btn {
@@ -73,7 +74,7 @@ a:hover{
   height: 40px;
   border-radius: 10px;
   margin-top: 25px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -166,7 +167,7 @@ a:hover{
 
 
 .bar{
-  width: 80%;
+  width: 70%;
   height: 2px;
   background-color: grey;
   margin-top: 10px;

@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService, Credential } from '../../services/auth.service';
 import Swal from 'sweetalert2';
+import { user } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-login-page',
@@ -35,33 +36,53 @@ export class LoginPageComponent {
       const userCredential = await this.authService.loginWithEmailAndPwd(
         credential
       );
-
-      // Mostrar mensaje de éxito con SweetAlert
-      Swal.fire({
-        didOpen: () => {
-          // Eliminar la clase 'swal2-height-auto' cuando se abra el modal
-          document.body.classList.remove('swal2-height-auto');
-        },
-        title: '¡Inicio de sesión exitoso!',
-        text: 'Bienvenido a la aplicación.',
-        icon: 'success',
-        confirmButtonText: 'Continuar',
-        customClass: {
-          popup: 'blur-popup',
-        },
-        backdrop: `
+      if (user && (await this.authService.isEmailVerified())) {
+        // Mostrar mensaje de éxito con SweetAlert
+        Swal.fire({
+          didOpen: () => {
+            // Eliminar la clase 'swal2-height-auto' cuando se abra el modal
+            document.body.classList.remove('swal2-height-auto');
+          },
+          title: '¡Inicio de sesión exitoso!',
+          text: 'Bienvenido a la aplicación.',
+          icon: 'success',
+          confirmButtonText: 'Continuar',
+          customClass: {
+            popup: 'blur-popup',
+          },
+          backdrop: `
           rgba(0,0,0,0.75)
           left top
           no-repeat
         `,
-      });
+        });
 
-      // Si el usuario se ha logueado correctamente
-      this.router.navigateByUrl('/');
-      console.log(
-        'Usuario logueado correctamente:',
-        userCredential.user?.email
-      );
+        // Si el usuario se ha logueado correctamente
+        this.router.navigateByUrl('/');
+        console.log(
+          'Usuario logueado correctamente:',
+          userCredential.user?.email
+        );
+      } else {
+        Swal.fire({
+          didOpen: () => {
+            // Eliminar la clase 'swal2-height-auto' cuando se abra el modal
+            document.body.classList.remove('swal2-height-auto');
+          },
+          title: 'Error',
+          text: 'Usuario no verificado. Por favor, verifique su cuenta.',
+          icon: 'error',
+          confirmButtonText: 'Entendido',
+          customClass: {
+            popup: 'blur-popup',
+          },
+          backdrop: `
+            rgba(0,0,0,0.75)
+            left top
+            no-repeat
+          `,
+        });
+      }
     } catch (error: any) {
       // Capturamos los errores de autenticación
       console.error('Error al iniciar sesión:', error.message);
@@ -160,18 +181,39 @@ export class LoginPageComponent {
       const userCredential = await this.authService.loginWithGoogle();
       const userEmail = userCredential.user?.email;
       console.log(userCredential);
-      Swal.fire({
-        didOpen: () => {
-          // Eliminar la clase 'swal2-height-auto' cuando se abra el modal
-          document.body.classList.remove('swal2-height-auto');
-        },
-        title: '¡Inicio de sesión con Google exitoso!',
-        text: 'Bienvenido a la aplicación.',
-        icon: 'success',
-        confirmButtonText: 'Continuar',
-      }).then(() => {
-        this.router.navigateByUrl('/'); // Redirigir a la página principal
-      });
+      if (user && (await this.authService.isEmailVerified())) {
+        Swal.fire({
+          didOpen: () => {
+            // Eliminar la clase 'swal2-height-auto' cuando se abra el modal
+            document.body.classList.remove('swal2-height-auto');
+          },
+          title: '¡Inicio de sesión con Google exitoso!',
+          text: 'Bienvenido a la aplicación.',
+          icon: 'success',
+          confirmButtonText: 'Continuar',
+        }).then(() => {
+          this.router.navigateByUrl('/'); // Redirigir a la página principal
+        });
+      } else {
+        Swal.fire({
+          didOpen: () => {
+            // Eliminar la clase 'swal2-height-auto' cuando se abra el modal
+            document.body.classList.remove('swal2-height-auto');
+          },
+          title: 'Error',
+          text: 'Usuario no verificado. Por favor, verifique su cuenta.',
+          icon: 'error',
+          confirmButtonText: 'Entendido',
+          customClass: {
+            popup: 'blur-popup',
+          },
+          backdrop: `
+            rgba(0,0,0,0.75)
+            left top
+            no-repeat
+          `,
+        });
+      }
     } catch (error: any) {
       console.error('Error en la autenticación con Google:', error.message);
       if (error.code === 'auth/user-disabled') {
@@ -202,6 +244,6 @@ export class LoginPageComponent {
 
   // Método para autenticación con Facebook
   async loginFacebook() {
-    return "Hola";
+    return 'Hola';
   }
 }

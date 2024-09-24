@@ -26,8 +26,8 @@ export class MainPageComponent {
   }
 
   redirectLogin() {
-    setTimeout(() => {
+    //setTimeout(() => {
       this.router.navigate(['/login']);
-    }, 3000);
+    //}, 3000);
   }
 }

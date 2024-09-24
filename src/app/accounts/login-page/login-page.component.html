@@ -14,10 +14,10 @@
         <div class="underline"></div>
       </div>
 
-      <p>¿Olvidó la contraseña?&nbsp;<a href="">Restablecer contraseña</a></p>
+      <p>¿Olvidó la contraseña?&nbsp;<a (click)="this.router.navigate(['/login'])">Restablecer contraseña</a></p>
 
       <button (click)="onLogin()" type="submit" class="btn">Iniciar Sesión</button>
-      <p>¿No tienes una cuenta?&nbsp;<a href="">Registrate aquí</a></p>
+      <p>¿No tienes una cuenta?&nbsp;<a (click)="this.router.navigate(['/sign'])">Registrate aquí</a></p>
 
       <div class="bar">&nbsp;</div>
     </form> 

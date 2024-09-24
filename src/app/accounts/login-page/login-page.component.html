@@ -1,15 +1,15 @@
-<app-doors></app-doors>
+<!--<app-doors></app-doors>-->
 <section class="main">
   <div class="bg-container">
     <form class="container">
-      <h1>Iniciar Sesión</h1>
+      <h1>Inicio de Sesión</h1>
       <div class="input-container">
-        <input type="text" id="input" required="">
+        <input type="text" id="input" required="" autocomplete="off" />
         <label for="input" class="label">Introduzca su correo o usuario</label>
         <div class="underline"></div>
       </div>
       <div id="pwd" class="input-container">
-        <input type="text" id="input" required="">
+        <input type="password" id="input" required="" autocomplete="off" />
         <label for="input" class="label">Introduzca su contraseña</label>
         <div class="underline"></div>
       </div>
@@ -19,24 +19,11 @@
       <p>¿No tienes una cuenta?&nbsp;<a href="">Registrate aquí</a></p>
 
       <div class="bar">&nbsp;</div>
-      <button type="button" class="btn-socials">
-        <img
-          width="30"
-          height="30"
-          src="https://img.icons8.com/papercut/120/google-logo.png"
-          alt="google-logo"
-        />
-        <p>Iniciar sesión con google</p>
-      </button>
-      <button type="button" class="btn-socials">
-        <img
-          width="30"
-          height="30"
-          src="https://img.icons8.com/color/48/facebook.png"
-          alt="facebook"
-        />
-        <p>Iniciar sesión con facebook</p>
-      </button>
-    </form>
+    </form> 
+    <p class="p-socials">Inicia sesión más rapido con:</p>
+    <div class="container-socials">
+      <button class="btn-socials google"><img width="27" height="27" src="https://img.icons8.com/color/48/google-logo.png" alt="google-logo"/>Google</button
+      ><button class="btn-socials apple"><img width="30" height="30" src="https://img.icons8.com/color/48/facebook.png" alt="facebook"/>Facebook</button>
+    </div>
   </div>
 </section>

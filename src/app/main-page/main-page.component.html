@@ -1,15 +1,14 @@
 <app-doors></app-doors>
-<app-doors-close></app-doors-close>
 <div class="language-container">
   <img src="../assets/language.svg" alt="Seleccionar Idioma" />
 </div>
-<div (click)="redirectInstagram()" class="social-container">
+<!--<div (click)="redirectInstagram()" class="social-container">
     <img src="../assets/insta.svg" alt="Seguirnos en Instagram" />
     <p>Instagram</p>
-  </div>
+  </div>-->
 <section class="main">
   <h1 id="title">Colección Cars Mini Racers</h1>
-  <button (click)="redirectLogin()" class="cta">
+  <button (click)="redirectLogin()" class="btn-collection">
     <span class="hover-underline-animation"> Comienza la colección </span>
     <svg
       id="arrow-horizontal"
@@ -29,12 +28,22 @@
       ></path>
     </svg>
   </button>
+  <p class="learn-more">Aprender más</p>
   <div (click)="scrollToSection('section2')" class="unfold-container">
     <img src="../assets/unfold.svg" alt="Conoce más" />
   </div>
 </section>
 <app-doors></app-doors>
 <section id="section2" class="section2">
+  <div class="about-txt">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus
+    inventore sapiente quod, ad praesentium adipisci iusto odio. Maiores eaque
+    ex sed molestiae sint repellat natus error aut magni, perferendis quia!
+  </div>
+  <div class="about-img"></div>
+</section>
+
+<section id="section3" class="section2">
   <div class="about-txt">
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus
     inventore sapiente quod, ad praesentium adipisci iusto odio. Maiores eaque

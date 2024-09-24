@@ -14,6 +14,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    text-align: center;
   }
   
   #title{
@@ -121,25 +122,29 @@
     0%, 100% {
       transform: scale(1); 
     }
-    30% {
+    50% {
       transform: scale(1.1);
     }
-    50% {
-      transform: scale(1);
-    }
-    70% {
-      transform: scale(1.2);
-    }
+  }
+
+  .learn-more{
+    position: absolute;
+    top: 85%;
+    font-size: 1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    animation: bounce 1.5s infinite; /* Ejecuta la animación infinitamente */
   }
   
-  .cta {
+  .btn-collection {
     border: none;
     background: none;
     cursor: pointer;
     margin-top: 50px;
   }
   
-  .cta span {
+  .btn-collection span {
     padding-bottom: 7px;
     letter-spacing: 2px;
     font-size: 2em;
@@ -148,17 +153,17 @@
     text-transform: uppercase;
   }
   
-  .cta svg {
+  .btn-collection svg {
     transform: translateX(-8px);
     transition: all 0.3s ease;
     padding-bottom: 5px;
   }
   
-  .cta:hover svg {
+  .btn-collection:hover svg {
     transform: translateX(0);
   }
   
-  .cta:active svg {
+  .btn-collection:active svg {
     transform: scale(0.9);
   }
   
@@ -181,7 +186,7 @@
     transition: transform 0.25s ease-out;
   }
   
-  .cta:hover .hover-underline-animation:after {
+  .btn-collection:hover .hover-underline-animation:after {
     transform: scaleX(1);
     transform-origin: bottom left;
   }

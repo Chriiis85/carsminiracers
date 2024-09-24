@@ -17,15 +17,20 @@
 .bg-container {
   width: 500px;
   height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(3px); /* Nivel de desenfoque */
-  -webkit-backdrop-filter: blur(10px); 
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(10px);
+  text-align: center;
 }
 
 .container {
-  width: 500px;
-  height: 600px;
+  width: 600px;
+  height: 400px;
   color: white;
   display: flex;
   align-items: center;
@@ -44,7 +49,7 @@
 
 .container > p{
   margin: 0;
-  font-size: 0.8em;
+  font-size: 1em;
   font-weight: 500;
   margin-bottom: 10px;
 }
@@ -53,56 +58,38 @@ a{
   margin: 0;
   font-size: 1em;
   font-weight: 500;
-  color: blue;
+  color: white;
+  transition: 0.1s;
+  text-decoration: none;
 }
 
-.btn{
-  display: inline-block;
-  outline: 0;
-  cursor: pointer;
-  text-align: center;
-  border: 1px solid #babfc3;
-  padding: 5px 20px;
-  min-height: 40px;
-  min-width: 350px;
-  color: #202223;
-  background: #ffffff;
-  border-radius: 5px;
-  font-weight: 600;
-  font-size: 0.8em;
-  text-transform: uppercase;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 0px 0px;
+a:hover{
+  color: #2d79f3;
+  text-decoration: underline;
+}
+
+.btn {
+  width: 350px;
+  height: 40px;
+  border-radius: 10px;
   margin-top: 25px;
   margin-bottom: 10px;
-  border: 2px solid gray;
-}
-
-.btn-socials{
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content:center;
-  flex-direction: row;
-  gap: 15px;
-  outline: 0;
-  cursor: pointer;
-  text-align: center;
-  padding: 5px 20px;
-  min-height: 20px;
-  min-width: 350px;
-  color: #202223;
-  background: #ffffff;
-  border-radius: 5px;
   font-weight: 600;
-  font-size: 0.8em;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 0px 0px;
-  margin-top: 15px;
-  text-transform: uppercase;
-  border: 2px solid gray;
+  font-size: 1em;
+  gap: 10px;
+  border: 1px solid #ededef;
+  background-color: white;
+  cursor: pointer;
+  transition: 0.1s;
 }
 
-.btn-socials:hover,.btns:hover {
-  background: #f6f6f7;
-  outline: 1px solid transparent;
+.btn:hover {
+  background-color: black;
+  color: white;
+  border: 2px solid #2d79f3;
 }
 
 .back{
@@ -129,7 +116,7 @@ a{
   margin-bottom: 15px;
 }
 
-.input-container input[type="text"] {
+.input-container input[type="text"], input[type="password"] {
   font-size: 1em;
   width: 100%;
   border: none;
@@ -147,10 +134,13 @@ a{
   color: white;
   transition: all 0.3s ease;
   pointer-events: none;
+  font-size: 1.1em;
 }
 
 .input-container input[type="text"]:focus ~ .label,
-.input-container input[type="text"]:valid ~ .label {
+.input-container input[type="text"]:valid ~ .label,
+.input-container input[type="password"]:focus ~ .label,
+.input-container input[type="password"]:valid ~ .label {
   top: -20px;
   font-size: 16px;
   color: white;
@@ -168,7 +158,9 @@ a{
 }
 
 .input-container input[type="text"]:focus ~ .underline,
-.input-container input[type="text"]:valid ~ .underline {
+.input-container input[type="text"]:valid ~ .underline,
+.input-container input[type="password"]:focus ~ .underline,
+.input-container input[type="password"]:valid ~ .underline {
   transform: scaleX(1);
 }
 
@@ -180,3 +172,37 @@ a{
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+.container-socials{
+  width: 400px;
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.btn-socials {
+  width: 150px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 1em;
+  font-weight: 600;
+  border: 1px solid #ededef;
+  background-color: white;
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+.btn-socials:hover {
+  border: 2px solid #2d79f3;
+}
+
+.p-socials{
+  font-size: 1.2em;
+  font-weight: 600;
+}
+

@@ -4,26 +4,27 @@
     <form class="container">
       <h1>Inicio de Sesión</h1>
       <div class="input-container">
-        <input type="text" id="input" required="" autocomplete="off" />
+        <input type="text" [(ngModel)]="email" id="email" name="email" required="" autocomplete="off" />
         <label for="input" class="label">Introduzca su correo o usuario</label>
         <div class="underline"></div>
       </div>
-      <div id="pwd" class="input-container">
-        <input type="password" id="input" required="" autocomplete="off" />
-        <label for="input" class="label">Introduzca su contraseña</label>
+            <div class="input-container" id="pwd">
+        <input type="password" [(ngModel)]="pwd"  name="pwd" required="" autocomplete="off" />
+        <label for="input" class="label">Introduzca su correo o usuario</label>
         <div class="underline"></div>
       </div>
+
       <p>¿Olvidó la contraseña?&nbsp;<a href="">Restablecer contraseña</a></p>
 
-      <button type="submit" class="btn">Iniciar Sesión</button>
+      <button (click)="onLogin()" type="submit" class="btn">Iniciar Sesión</button>
       <p>¿No tienes una cuenta?&nbsp;<a href="">Registrate aquí</a></p>
 
       <div class="bar">&nbsp;</div>
     </form> 
     <p class="p-socials">Inicia sesión más rapido con:</p>
     <div class="container-socials">
-      <button class="btn-socials google"><img width="27" height="27" src="https://img.icons8.com/color/48/google-logo.png" alt="google-logo"/>Google</button
-      ><button class="btn-socials apple"><img width="30" height="30" src="https://img.icons8.com/color/48/facebook.png" alt="facebook"/>Facebook</button>
+      <button (click)="loginGoogle()" class="btn-socials google"><img width="27" height="27" src="https://img.icons8.com/color/48/google-logo.png" alt="google-logo"/>Google</button
+      ><button (click)="loginFacebook()" class="btn-socials apple"><img width="30" height="30" src="https://img.icons8.com/color/48/facebook.png" alt="facebook"/>Facebook</button>
     </div>
   </div>
 </section>

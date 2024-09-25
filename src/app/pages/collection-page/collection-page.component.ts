@@ -14,17 +14,16 @@ import { CommonModule } from '@angular/common';
 export class CollectionPageComponent {
 
   constructor(private router: Router) {}
-  isUserVerified: boolean = false
   // Inyectar el servicio para poder usar sus propiedades
   private authService = inject(AuthService);
 
-  async ngOnInit() {
+  /*async ngOnInit() {
     this.isUserVerified = await this.userVerified();
   }
-
+  isUserVerified: boolean = false
   async userVerified(): Promise<boolean> {
     return await this.authService.isEmailVerified();
-  }
+  }*/
 
   //Cerrar Sesión
   logOut(){

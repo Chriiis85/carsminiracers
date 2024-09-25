@@ -1,4 +1,15 @@
 <app-doors></app-doors>
-<button (click)="logOut()" class="language-container">
+
+<section class="main">
+  <button (click)="logOut()" class="language-container">
     <p>Cerrar Sesión</p>
-</button>
+  </button>
+
+  <div *ngIf="userVerified; else noVerificado">
+    El usuario está verificado.
+  </div>
+  
+  <ng-template #noVerificado>
+    El usuario no está verificado.
+  </ng-template>
+</section>

@@ -31,7 +31,6 @@ export class AuthService {
       credential.email,
       credential.password
     );
-    this.sendEmailVerification();
   }
 
   // Método para iniciar sesión un usuario

@@ -39,6 +39,7 @@ export class SigninPageComponent {
         icon: 'success',
         confirmButtonText: 'Continuar',
       }).then(() => {
+        this.authService.sendEmailVerification();
         this.router.navigateByUrl('/collection'); // Redirigir a la página principal
       });
     } catch (error: any) {

@@ -3,6 +3,7 @@ import { DoorsComponent } from '../doors/doors.component';
 import { Router } from '@angular/router';
 import { DoorsCloseComponent } from '../doors-close/doors-close.component';
 import { AuthService } from '../services/auth.service';
+import { user } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-main-page',
@@ -27,8 +28,12 @@ export class MainPageComponent {
   }
 
   redirectLogin() {
+    if (user){
+      this.router.navigate(['/collection']);
+    }else{
     //setTimeout(() => {
       this.router.navigate(['/login']);
     //}, 3000);
+    }
   }
 }

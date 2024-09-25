@@ -1,14 +1,66 @@
 .main {
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background-color: whitesmoke;
-    color: black;
-    text-align: center;
-  }
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: whitesmoke;
+  color: black;
+  text-align: center;
+}
+
+.container-user {
+  width: 90%;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  border-bottom: 3px solid rgba(128, 128, 128, 0.5);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.container-user {
+  font-size: 2em;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+}
+
+.user-photo-container{
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 5px solid black;
+  background-color: whitesmoke;
+}
+
+.user-photo{
+  width: 130px;
+}
+
+.icons-user{
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.icons-user>img{
+  transition: 0.3s;
+}
+
+.icons-user>img:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+}
+

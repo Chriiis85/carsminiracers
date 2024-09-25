@@ -1,9 +1,17 @@
-<app-doors></app-doors>
+<!--<app-doors></app-doors>-->
 
 <section class="main">
-  <button (click)="logOut()" class="language-container">
-    <p>Cerrar Sesión</p>
-  </button>
+  <div class="container-user">
+    <div class="user-photo-container">
+      <img class="user-photo" src="../../../assets/Images/avatar-mcqueen.png" alt="">
+    </div>
+    <h1>{{username}}</h1>
+    <div class="icons-user">
+      <img (click)="home()" width="50" height="50" src="https://img.icons8.com/fluency/48/home.png" alt="home"/>
+      <img width="50" height="50" src="https://img.icons8.com/color/48/apple-settings.png" alt="apple-settings"/>
+      <img (click)="logOut()" width="50" height="50" src="https://img.icons8.com/color/48/exit.png" alt="exit"/>
+    </div>
+  </div>
 
   <!--<div *ngIf="userVerified; else noVerificado">
     El usuario está verificado.

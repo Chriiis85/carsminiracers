@@ -48,6 +48,7 @@ export class AuthService {
     return this.callPopUp(provider);
   }
 
+  // Método para registrar sesión con Google
   async signWithGoogle(): Promise<UserCredential> {
     this.sendEmailVerification();
     const provider = new GoogleAuthProvider();
@@ -73,6 +74,17 @@ export class AuthService {
     throw new Error('No hay usuario autenticado');
   }
 
+  // Método para enviar el email de restablecimiento de contraseña
+  async resetPassword(email: string): Promise<void> {
+    try {
+      await sendPasswordResetEmail(this.auth, email);
+      console.log('Correo de restablecimiento de contraseña enviado');
+    } catch (error) {
+      console.error('Error al enviar el correo de restablecimiento:', error);
+      throw error;
+    }
+  }
+
   // Comprobar si el correo ha sido verificado
   async isEmailVerified(): Promise<boolean> {
     const user = await this.auth.currentUser;
@@ -82,5 +94,11 @@ export class AuthService {
   // Cerrar sesión
   async logout() {
     return this.auth.signOut();
+  }
+
+  // Obtener el nombre del usuario autenticado
+  getUserName(): string | null {
+    const user = this.auth.currentUser;
+    return user ? user.displayName : null;
   }
 }

@@ -1,0 +1,25 @@
+<!--<app-doors></app-doors>-->
+<section class="main">
+  <div class="bg-container">
+    <form (ngSubmit)="onResetPassword()" class="container">
+      <h1>Restablecer Contraseña</h1>
+      <div class="input-container">
+        <input
+          type="text"
+          [(ngModel)]="email"
+          id="email"
+          name="email"
+          required=""
+          autocomplete="off"
+        />
+        <label for="input" class="label">Introduzca su correo</label>
+        <div class="underline"></div>
+      </div>
+
+      <button type="submit" class="btn">Restablecer Contraseña</button>
+      <p>
+        <a (click)="this.router.navigate(['/sign'])">Volver al inicio aquí</a>
+      </p>
+    </form>
+  </div>
+</section>

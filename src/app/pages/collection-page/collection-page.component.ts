@@ -14,6 +14,7 @@ import { CommonModule } from '@angular/common';
 export class CollectionPageComponent {
 
   constructor(private router: Router) {}
+
   // Inyectar el servicio para poder usar sus propiedades
   private authService = inject(AuthService);
 
@@ -25,9 +26,18 @@ export class CollectionPageComponent {
     return await this.authService.isEmailVerified();
   }*/
 
-  //Cerrar Sesión
+  username = this.authService.getUserName();
+
+  //Funcion del boton Cerrar Sesión
   logOut(){
     this.authService.logout();
     this.router.navigate(['/main']);
   }
+
+  home(){
+    this.router.navigate(['/main']);
+  }
+
+
+
 }

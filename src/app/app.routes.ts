@@ -38,6 +38,10 @@ export const routes: Routes = [
         path: 'sign',
         loadComponent: () => import('./accounts/signin-page/signin-page.component').then(m => m.SigninPageComponent)
       },
+      {
+        path: 'reset',
+        loadComponent: () => import('./accounts/resetpwd-page/resetpwd-page.component').then(m => m.ResetpwdPageComponent)
+      },
     ]
   },
 

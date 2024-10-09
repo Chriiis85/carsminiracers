@@ -4,11 +4,14 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { FormsModule } from '@angular/forms';
 import { DoorsComponent } from "../../doors/doors.component";
+import { user } from '@angular/fire/auth';
+import { DoorsCloseComponent } from "../../doors-close/doors-close.component";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-signin-page',
   standalone: true,
-  imports: [FormsModule, DoorsComponent],
+  imports: [FormsModule, DoorsComponent, DoorsCloseComponent, CommonModule],
   templateUrl: './signin-page.component.html',
   styleUrl: './signin-page.component.css',
 })
@@ -198,4 +201,15 @@ export class SigninPageComponent {
   async signInFacebook() {
     return '';
   }
+
+    //Redirigir paginas con puertas
+    showDoorsAnimation: boolean = false;
+
+    redirectLogin() {
+      this.showDoorsAnimation = true; // Muestra la animación de puertas
+      setTimeout(() => {
+          this.router.navigate(['/login']);
+        this.showDoorsAnimation = false; // Oculta la animación después de redirigir
+      }, 3400); // Tiempo que dure la animación (ajústalo según la duración real)
+    }
 }

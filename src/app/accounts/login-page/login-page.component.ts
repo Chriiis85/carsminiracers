@@ -6,11 +6,12 @@ import { Router } from '@angular/router';
 import { AuthService, Credential } from '../../services/auth.service';
 import Swal from 'sweetalert2';
 import { user } from '@angular/fire/auth';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login-page',
   standalone: true,
-  imports: [DoorsComponent, DoorsCloseComponent, FormsModule],
+  imports: [DoorsComponent, DoorsCloseComponent, FormsModule, CommonModule],
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.css',
 })
@@ -245,5 +246,36 @@ export class LoginPageComponent {
   // Método para autenticación con Facebook
   async loginFacebook() {
     return 'Hola';
+  }
+
+  //Redirigir paginas con puertas
+  showDoorsAnimation: boolean = false;
+
+  redirectSign() {
+    this.showDoorsAnimation = true; // Muestra la animación de puertas
+
+    setTimeout(() => {
+      if (user) {
+        this.router.navigate(['/sign']);
+      } else {
+        this.router.navigate(['/login']);
+      }
+      
+      this.showDoorsAnimation = false; // Oculta la animación después de redirigir
+    }, 3400); // Tiempo que dure la animación (ajústalo según la duración real)
+  }
+
+  redirectReset() {
+    this.showDoorsAnimation = true; // Muestra la animación de puertas
+
+    setTimeout(() => {
+      if (user) {
+        this.router.navigate(['/reset']);
+      } else {
+        this.router.navigate(['/login']);
+      }
+      
+      this.showDoorsAnimation = false; // Oculta la animación después de redirigir
+    }, 3400); // Tiempo que dure la animación (ajústalo según la duración real)
   }
 }

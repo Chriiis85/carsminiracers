@@ -1,4 +1,5 @@
-<!--<app-doors></app-doors>-->
+<app-doors></app-doors>
+<app-doors-close *ngIf="showDoorsAnimation"></app-doors-close>
 <section class="main">
   <div class="bg-container">
     <form (ngSubmit)="onResetPassword()" class="container">
@@ -18,7 +19,7 @@
 
       <button type="submit" class="btn">Restablecer Contraseña</button>
       <p>
-        <a (click)="this.router.navigate(['/sign'])">Volver al inicio aquí</a>
+        <a (click)="redirectLogin()">Volver al inicio aquí</a>
       </p>
     </form>
   </div>

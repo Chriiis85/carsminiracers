@@ -15,7 +15,8 @@ import { authGuard, publicGuard } from './auth.guard';
 export const routes: Routes = [
   {
     path: '',
-    loadComponent: () => import('./main-page/main-page.component').then(m => m.MainPageComponent),
+    redirectTo: '/main',
+    pathMatch: 'full'
   },
   {
     path: 'main',
@@ -29,22 +30,25 @@ export const routes: Routes = [
   {
     path: '',
     canActivate: [publicGuard],
-    children:[
+    children: [
       {
         path: 'login',
-        loadComponent: () => import('./accounts/login-page/login-page.component').then(m => m.LoginPageComponent)
+        loadComponent: () => import('./accounts/login-page/login-page.component').then(m => m.LoginPageComponent),
       },
       {
         path: 'sign',
-        loadComponent: () => import('./accounts/signin-page/signin-page.component').then(m => m.SigninPageComponent)
+        loadComponent: () => import('./accounts/signin-page/signin-page.component').then(m => m.SigninPageComponent),
       },
       {
         path: 'reset',
-        loadComponent: () => import('./accounts/resetpwd-page/resetpwd-page.component').then(m => m.ResetpwdPageComponent)
+        loadComponent: () => import('./accounts/resetpwd-page/resetpwd-page.component').then(m => m.ResetpwdPageComponent),
       },
     ]
   },
-
+  {
+    path: '**',
+    redirectTo: '/login',
+  },
 ];
 
 

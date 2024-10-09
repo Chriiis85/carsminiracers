@@ -22,11 +22,11 @@ export const routes: Routes = [
     path: 'main',
     loadComponent: () => import('./main-page/main-page.component').then(m => m.MainPageComponent),
   },  
-  {
+  /*{
     path: 'collection',
     canActivate: [authGuard],
     loadComponent: () => import('./pages/collection-page/collection-page.component').then(m => m.CollectionPageComponent),
-  },
+  },*/
   {
     path: '',
     canActivate: [publicGuard],
